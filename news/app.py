@@ -1,10 +1,7 @@
 from flask import Flask,render_template
 import requests
 app = Flask(__name__)
-
 app.static_url_path = '/static'
-
-# Define the folder where static files are stored (the 'static' subdirectory)
 app.static_folder = 'static'
 @app.route('/')
 def home():

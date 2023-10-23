@@ -1,11 +1,13 @@
 from flask import Flask,render_template
 import requests
+from decouple import config
+
 app = Flask(__name__)
 app.static_url_path = '/static'
 app.static_folder = 'static'
 @app.route('/')
 def home():
-    API_KEY="ee976b9f40b84b11af9136c525cc5618"
+    API_KEY=config('API_KEY')
     url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey='+API_KEY
     response = requests.get(url)
     data = response.json()
